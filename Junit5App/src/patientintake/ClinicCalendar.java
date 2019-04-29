@@ -31,5 +31,12 @@ public class ClinicCalendar {
    public List<PatientAppointment> getAppointments() {
       return this.appointments;
    }
+   
+   public boolean hasAppointment(PatientAppointment patient)
+   {
+	   return (appointments.stream().
+			   anyMatch(patientAppointment -> patientAppointment.getAppointmentDateTime().toLocalDate().equals
+					   (patient.getAppointmentDateTime().toLocalDate())));
+   }
 
 }
